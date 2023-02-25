@@ -8,24 +8,19 @@ namespace Design.Patterns.IteratorAndCompositePattern
 {
     public class Waitress
     {
-        IMenu pancakeHouseMenu;
-        IMenu dinerMenu;
-        public Waitress(IMenu pancakeHouseMenu, IMenu dinerMenu)
+        IEnumerable<IMenu> menusData;
+        public Waitress(IEnumerable<IMenu> menusData)
         {
-            this.pancakeHouseMenu = pancakeHouseMenu;
-            this.dinerMenu = dinerMenu;
+            this.menusData = menusData;
         }
+
+
         public void printMenu()
         {
-            var pancakeMenuItems = pancakeHouseMenu.GetMenu();
-            var dinerMenuItems = dinerMenu.GetMenu();
-
-            Console.WriteLine("MENU\n----\nBREAKFAST");
-            printMenu(pancakeMenuItems);
-
-
-            Console.WriteLine("\nLUNCH");
-            printMenu(dinerMenuItems);
+            foreach(var menuData in menusData)
+            {
+                printMenu(menuData.GetMenu());
+            }
         }
         private void printMenu(IEnumerable<MenuItem> iterator)
         {

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,9 +11,13 @@ namespace Design.Patterns.IteratorAndCompositePattern
     {
         public static void main()
         {
-            PancakeHouseMenu pancakeHouseMenu = new PancakeHouseMenu();
-            DinerMenu dinerMenu = new DinerMenu();
-            Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu);
+            IEnumerable<IMenu> menusData = new List<IMenu>() 
+            {
+                new PancakeHouseMenu(),
+                new DinerMenu()
+            };
+
+            Waitress waitress = new Waitress(menusData);
             waitress.printMenu();
         }
     }
