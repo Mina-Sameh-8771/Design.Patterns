@@ -1,4 +1,5 @@
 ﻿using Design.Patterns.IteratorAndCompositePattern;
+using Design.Patterns.StatePattern;
 using System;
 using System.Collections;
 
@@ -8,7 +9,11 @@ namespace Design.Patterns
     {
         static void Main(string[] args)
         {
-            MenuTestDrive.main();
+            //uncomment for run IteratorAndCompositePattern
+            //MenuTestDrive.main();
+
+            //uncomment for run StatePattern
+            GumballMachineTestDrive.main();
         }
     }
 }
